@@ -120,7 +120,7 @@ module.exports.delete = (req, res, next) => {
 
 module.exports.addProduct = (req, res, next) => {
 
-    User.updateOne( { username: req.body.username } , { $set: {"cart": req.body.cart }} , (err, user) =>{
+    User.updateOne( { username: req.body.username } , { $push: {"cart": {giftId: req.body.productId,  quantity: req.body.quantity}} }  , (err, user) =>{
         if(err)
         {
             return console.log(err);
