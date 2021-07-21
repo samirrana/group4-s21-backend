@@ -41,6 +41,19 @@ module.exports.getProduct = (req, res, next) => {
     });
 }
 
+module.exports.getProductByProductId = (req, res, next) => {
+    Products.find({ productId : req.params.id }, (err, product) => {
+        if(err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            res.send({"products": product})      
+        }
+    });
+}
+
 module.exports.displayAnniversaryProduct = (req, res, next) => {
     Products.find({productType : "Anniversary"}, (err, productList) => {
         if(err)

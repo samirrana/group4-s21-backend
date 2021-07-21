@@ -6,7 +6,9 @@ const schema  = {
     "orderStatus": String,
     "products": [{
         "giftId": String,
-        "quantity": Number
+        "quantity": Number,
+        "productImage": String,
+        "productName": String
     }],
     "orderAddress":String,
     "orderContact":String,

@@ -8,6 +8,8 @@ router.get('/displayProducts', productController.displayProducts);
 
 router.get('/displayProducts/:id', productController.getProduct);
 
+router.get('/getProducts/:id', productController.getProductByProductId);
+
 router.get('/displayBirthdayProducts', productController.displayBirthdayProducts);
 
 router.get('/displayBirthdayProducts/:id', productController.getProduct);
