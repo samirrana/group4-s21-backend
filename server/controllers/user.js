@@ -152,26 +152,14 @@ module.exports.deleteCartProduct = (req, res, next) => {
 
     User.findOne({ username: req.body.username }).then(user=>{
         console.log(user)
-        let product = user.cart.filter((element)=> {return element});
-        let productToBeDeleted = user.cart.filter((element)=> {return element.giftId == req.body.productId});
-        console.log("Before delete",user)
+        let cart = user.cart.filter((element)=> {return element});
 
-        // user.update(
-        //     { username : req.body.username },
-        //     {$pull : {"cart.0" : {"giftId":req.body.productId}}}
-        // )
-        //
-        // console.log("After delete",user)
-
-        for( let i = 0; i<product.length; i++)
-        {
-            if(productToBeDeleted[0]['giftId'] == product[i]['giftId'])
-            {
-                user.cart[i].splice(user.cart[i],1);
-                user.save();
-                console.log("after cart",user.cart)
-            }
-        }
+        let productToBeDeletedIndex = cart.findIndex((product)=>{return (product.giftId == req.body.productId)})
+        cart.splice(productToBeDeletedIndex,1)
+        user.cart = cart
+        console.log("productToBeDeletedIndex",productToBeDeletedIndex)
+        console.log("After Delete",cart)
+        user.save()
         res.send({"message": user.nModified > 0 ? "success" : "failure"})
     })
 }
