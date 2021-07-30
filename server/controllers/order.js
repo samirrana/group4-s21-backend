@@ -77,7 +77,10 @@ module.exports.createOrder = (req, res, next) => {
         "orderId":req.body.orderId,
         "userId": req.body.userId,
         "orderStatus": req.body.orderStatus,
-        "products": req.body.products
+        "products": req.body.products,
+        "orderAddress":req.body.orderAddress,
+        "orderDeliveryDate":req.body.orderDeliveryDate,
+        "orderPlacedDate":req.body.orderPlacedDate
     });
 
     Order.create(newOrder, (err, order) =>{
