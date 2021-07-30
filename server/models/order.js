@@ -26,6 +26,7 @@ const schema  = {
         "postalCode": String,
         "modeOfPayment":String
     }],
+    "orderAmount":String,
     "orderDeliveryDate":String,
     "orderPlacedDate":String,
     "cancellationReason":String,

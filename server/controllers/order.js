@@ -79,6 +79,7 @@ module.exports.createOrder = (req, res, next) => {
         "orderStatus": req.body.orderStatus,
         "products": req.body.products,
         "orderAddress":req.body.orderAddress,
+        "orderAmount":req.body.orderAmount,
         "orderDeliveryDate":req.body.orderDeliveryDate,
         "orderPlacedDate":req.body.orderPlacedDate
     });
