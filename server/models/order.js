@@ -5,10 +5,18 @@ const schema  = {
     "userId": String,
     "orderStatus": String,
     "products": [{
-        "giftId": String,
-        "quantity": Number,
-        "productImage": String,
-        "productName": String
+        "categories":String,
+        "productCount":Number,
+        "productDescription":String,
+        "productId":String,
+        "productImage":String,
+        "productName":String,
+        "productPrice":String,
+        "productReview":[],
+        "productStockUnits":String,
+        "productType":String,
+        "prouductType":String,
+        "totalSum":Number
     }],
     "orderAddress": [{
         "deliveryName": String,
