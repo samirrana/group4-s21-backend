@@ -10,6 +10,8 @@ router.get('/displayProducts/:id', productController.getProduct);
 
 router.get('/getProducts/:id', productController.getProductByProductId);
 
+router.get('/getProductsByName/:name', productController.getProductsByName);
+
 router.get('/displayBirthdayProducts', productController.displayBirthdayProducts);
 
 router.get('/displayBirthdayProducts/:id', productController.getProduct);

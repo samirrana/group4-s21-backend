@@ -107,3 +107,16 @@ module.exports.addReview = (req, res, next) => {
         }
     });
 }
+
+module.exports.getProductsByName = (req, res, next) => {
+    Products.find({productName : {$regex : ".*"+req.params.name+".*"}}, (err, productList) => {
+        if(err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            res.send({"products": productList})
+        }
+    });
+}
