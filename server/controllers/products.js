@@ -29,7 +29,7 @@ module.exports.displayBirthdayProducts = (req, res, next) => {
 }
 
 module.exports.getProduct = (req, res, next) => {
-    Products.find({ _id : req.params.id }, (err, product) => {
+    Products.find({ productId : req.params.id }, (err, product) => {
         if(err)
         {
             return console.error(err);
