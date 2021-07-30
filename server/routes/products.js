@@ -10,7 +10,7 @@ router.get('/displayProducts/:id', productController.getProduct);
 
 router.get('/displayWishlistProducts/:id', productController.getProductById);
 
-router.get('/getProducts/:id', productController.getProductById);
+router.get('/getProducts/:id', productController.getProductByProductId);
 
 router.get('/getProductsByName/:name', productController.getProductsByName);
 
