@@ -122,6 +122,7 @@ module.exports.getProductsByName = (req, res, next) => {
 }
 
 module.exports.getProductById = (req, res, next) => {
+    console.log(req.params.id)
     Products.find({ _id : req.params.id }, (err, product) => {
         if(err)
         {
