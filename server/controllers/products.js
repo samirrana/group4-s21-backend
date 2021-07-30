@@ -120,3 +120,17 @@ module.exports.getProductsByName = (req, res, next) => {
         }
     });
 }
+
+module.exports.getProductById = (req, res, next) => {
+    Products.find({ _id : req.params.id }, (err, product) => {
+        if(err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            res.send({"products": product})      
+        }
+    });
+}
+
