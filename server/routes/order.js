@@ -3,7 +3,9 @@ var router = express.Router();
 
 let orderController = require('../controllers/order');
 
-router.post('/createOrder', orderController.createOrder);
+router.post('/createOrder/', orderController.createOrder);
+
+router.get('/displayOrders/', orderController.displayOrders);
 
 router.get('/:username', orderController.displayOrderList);
 

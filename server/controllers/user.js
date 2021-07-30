@@ -153,7 +153,6 @@ module.exports.deleteCartProduct = (req, res, next) => {
     User.findOne({ username: req.body.username }).then(user=>{
         console.log(user)
         let cart = user.cart.filter((element)=> {return element});
-
         let productToBeDeletedIndex = cart.findIndex((product)=>{return (product.giftId == req.body.productId)})
         cart.splice(productToBeDeletedIndex,1)
         user.cart = cart
@@ -161,6 +160,16 @@ module.exports.deleteCartProduct = (req, res, next) => {
         console.log("After Delete",cart)
         user.save()
         res.send({"message": user.nModified > 0 ? "success" : "failure"})
+    })
+}
+
+module.exports.deleteWholeCart = (req, res, next) => {
+    console.log("username",req.body.username)
+    console.log("productId",req.body.productId)
+
+    User.findOne({ username: req.body.username }).then(user=>{
+        user.cart = []
+        user.save()
     })
 }
 

@@ -1,7 +1,6 @@
 // author: Samir Anwar Rana & Aparna Vivekanandan
 let Products = require('../models/products');
 
-
 module.exports.displayProducts = (req, res, next) => {
     Products.find((err, productList) => {
         if(err)

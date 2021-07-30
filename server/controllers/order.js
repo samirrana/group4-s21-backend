@@ -71,8 +71,7 @@ module.exports.updateStatus = (req, res, next) => {
 }
 
 module.exports.createOrder = (req, res, next) => {
-    console.log("in createOrder api")
-    console.log(req.body.orderStatus)
+    console.log(req.body.orderId);
     let newOrder = Order({
         "orderId":req.body.orderId,
         "userId": req.body.userId,
@@ -91,31 +90,21 @@ module.exports.createOrder = (req, res, next) => {
         }
         else
         {
-            res.send({"message": order ? "success" : "failure"})  
+            res.send({"message": order ? "success" : "failure"})
         }
     });
 }
 
-// module.exports.update = (req, res, next) => {
-
-//     let updatedUser = User({
-//         "_id": req.body.userId,
-//         "username": req.body.username.value,
-//         "password": req.body.password.value,
-//         "firstname": req.body.firstname.value,
-//         "lastname": req.body.lastname.value,
-//         "cart": req.body.cart,
-//         "wishlist": req.body.wishlist
-//     });
-
-//     User.updateOne( { _id: req.body.userId } , { $set: updatedUser } , (err, user) =>{
-//         if(err)
-//         {
-//             return console.log(err);
-//         }
-//         else
-//         {
-//             res.send({"message": user.nModified > 0 ? "success" : "failure"})  
-//         }
-//     });
-// }
+// To Retrieve the Order's List
+module.exports.displayOrders = (req, res, next) => {
+    Order.find((err, orderList) => {
+        if(err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            res.send({"orders": orderList})
+        }
+    });
+}

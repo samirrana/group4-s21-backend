@@ -22,6 +22,7 @@ router.post('/addproduct', userController.addProduct)
 
 router.post('/updateCartProductQuantity', userController.updateCartProductQuantity)
 router.post('/deleteCartProduct', userController.deleteCartProduct)
+router.post('/deleteWholeCart', userController.deleteWholeCart)
 
 router.post('/addwishlist', userController.addWishList)
 
