@@ -10,8 +10,16 @@ const schema  = {
         "productImage": String,
         "productName": String
     }],
-    "orderAddress":String,
-    "orderContact":String,
+    "orderAddress": [{
+        "deliveryName": String,
+        "aptNo": Number,
+        "streetName": String,
+        "city": String,
+        "postalCode": String,
+        "modeOfPayment":String
+    }],
+    "orderDeliveryDate":String,
+    "orderPlacedDate":String,
     "cancellationReason":String,
     "cancellationDesc":String
 }
