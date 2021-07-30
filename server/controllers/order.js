@@ -2,7 +2,7 @@
 let Order = require('../models/order');
 
 module.exports.displayOrderList = (req, res, next) => {
-    Order.find({ username: req.params.username },(err, orderList) => {
+    Order.find({ userId: req.params.username },(err, orderList) => {
         if(err)
         {
             return console.error(err);
