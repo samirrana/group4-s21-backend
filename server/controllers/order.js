@@ -90,6 +90,7 @@ module.exports.createOrder = (req, res, next) => {
         }
         else
         {
+            order.save();
             res.send({"message": order ? "success" : "failure"})
         }
     });
